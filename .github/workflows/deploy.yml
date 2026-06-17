@@ -25,12 +25,21 @@ jobs:
         run: npm ci
 
       - name: Build
+        run: npm run build -- --base-href=/soor_web/
+
+      - name: Prepare deploy folder
         run: |
-          npm run build -- --base-href=/soor_web/
-          cp dist/soor_tech/browser/index.html dist/soor_tech/browser/404.html
+          # Move browser build to a clean deploy directory
+          mkdir -p deploy_output
+          cp -r dist/soor_tech/browser/. deploy_output/
+          # Copy 404.html for SPA routing fallback
+          cp deploy_output/index.html deploy_output/404.html
+          # Confirm files
+          ls -la deploy_output/
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/soor_tech/browser
+          folder: deploy_output
           branch: gh-pages
+          clean: true
