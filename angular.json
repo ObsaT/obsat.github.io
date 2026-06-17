@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "soor_tech": {
+    "soor_web": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/soor_tech",
+            "outputPath": "dist/soor_web",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -50,10 +50,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "soor_tech:build:production"
+              "buildTarget": "soor_web:build:production"
             },
             "development": {
-              "buildTarget": "soor_tech:build:development"
+              "buildTarget": "soor_web:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,8 +72,10 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.css",
-             "node_modules/@fortawesome/fontawesome-free/css/all.min.css"],
+            "styles": [
+              "src/styles.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+            ],
             "scripts": []
           }
         },

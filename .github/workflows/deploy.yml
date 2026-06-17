@@ -31,7 +31,7 @@ jobs:
         run: |
           # Move browser build to a clean deploy directory
           mkdir -p deploy_output
-          cp -r dist/soor_tech/browser/. deploy_output/
+          cp -r dist/soor_web/browser/. deploy_output/
           # Copy 404.html for SPA routing fallback
           cp deploy_output/index.html deploy_output/404.html
           # Confirm files
